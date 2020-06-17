@@ -5,6 +5,7 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
+import Particles from "react-particles-js";
 
 export const IndexPageTemplate = ({ image, title, heading, subheading, mainpitch, description, intro }) => (
 	<div>
@@ -14,8 +15,35 @@ export const IndexPageTemplate = ({ image, title, heading, subheading, mainpitch
 				backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})`,
 				backgroundPosition: `top left`,
 				backgroundAttachment: `fixed`,
+				position: "relative",
 			}}
 		>
+			<Particles
+				params={{
+					particles: {
+						number: {
+							value: 100,
+						},
+						size: {
+							value: 2,
+						},
+					},
+					interactivity: {
+						events: {
+							onhover: {
+								enable: true,
+								mode: "repulse",
+							},
+						},
+					},
+					move: {
+						random: true,
+						speed: 1,
+						out_mode: "out",
+					},
+				}}
+				style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+			/>
 			<div
 				style={{
 					display: "flex",
