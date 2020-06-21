@@ -3,15 +3,14 @@ templateKey: index-page
 title: Sve vaše potrebe na jednom mjestu
 image: /img/pgegefq.jpg
 video: /img/apple-touch-icon.png
-heading: Great coffee with a conscience
+heading: Cijeli paket. Individualni pristup
 subheading: Moderni svijet pun je izazova poslovanje. Uz Ekletku izazovi postaju uspjesi.
 mainpitch:
   title: Zašto Ekletka?
   description: Lorem ipsum
-description: Kaldi is the ultimate spot for coffee lovers who want to learn
-  about their java’s origin and support the farmers that grew it. We take coffee
-  production, roasting and brewing seriously and we’re glad to pass that
-  knowledge to anyone.
+description: Ekletka nudi sve usluge za vaše moderno poslovanje na web, mobilnim
+  i desktop platformama. Svaki korak potpunog, personaliziranog rješenja je
+  pokriven.
 intro:
   blurbs:
     - image: /img/coffee.png
