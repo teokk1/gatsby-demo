@@ -26,6 +26,7 @@ export const IndexPageTemplate = ({ image, title, heading, subheading, mainpitch
 						size: {
 							value: 2,
 						},
+						color: "#222",
 					},
 					interactivity: {
 						events: {
@@ -41,7 +42,7 @@ export const IndexPageTemplate = ({ image, title, heading, subheading, mainpitch
 						out_mode: "out",
 					},
 				}}
-				style={{ position: "absolute", top: "-100%", left: "-100%", width: "200%", height: "200%" }}
+				style={{ position: "absolute", top: "0", left: "0", width: "200%", height: "200%" }}
 			/>
 			<div
 				style={{

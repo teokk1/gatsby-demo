@@ -38,7 +38,7 @@ class ProjectRoll extends React.Component {
 									<br />
 									<br />
 									<Link className="button" to={post.fields.slug}>
-										Keep Reading →
+										Više o projektu →
 									</Link>
 								</p>
 							</article>
