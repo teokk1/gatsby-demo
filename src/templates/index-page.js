@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby";
 
 import Layout from "../components/Layout";
 import Features from "../components/Features";
-import BlogRoll from "../components/BlogRoll";
+import ProjectRoll from "../components/ProjectRoll";
 import Particles from "react-particles-js";
 
 export const IndexPageTemplate = ({ image, title, heading, subheading, mainpitch, description, intro }) => (
@@ -105,9 +105,9 @@ export const IndexPageTemplate = ({ image, title, heading, subheading, mainpitch
 								</div>
 								<div className="column is-12">
 									<h3 className="has-text-weight-semibold is-size-2">Najnoviji projekti</h3>
-									<BlogRoll />
+									<ProjectRoll />
 									<div className="column is-12 has-text-centered">
-										<Link className="btn" to="/blog">
+										<Link className="btn" to="/projects">
 											Read more
 										</Link>
 									</div>
