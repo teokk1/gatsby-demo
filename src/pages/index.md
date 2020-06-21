@@ -1,10 +1,11 @@
 ---
 templateKey: index-page
 title: Sve vaše potrebe na jednom mjestu
-image: /img/pgegefq.jpg
+image: /img/photo-1531297484001-80022131f5a1.jpg
 video: /img/apple-touch-icon.png
 heading: Cijeli paket. Individualni pristup
-subheading: Moderni svijet pun je izazova poslovanje. Uz Ekletku izazovi postaju uspjesi.
+subheading: Moderni svijet pun je izazova za poslovanje. Uz Ekletku izazovi
+  postaju uspjesi.
 mainpitch:
   title: Zašto Ekletka?
   description: Lorem ipsum
