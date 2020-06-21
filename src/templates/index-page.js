@@ -7,7 +7,7 @@ import Features from "../components/Features";
 import ProjectRoll from "../components/ProjectRoll";
 import Particles from "react-particles-js";
 
-export const IndexPageTemplate = ({ image, title, heading, subheading, mainpitch, description, intro }) => (
+export const IndexPageTemplate = ({ image, title, subtitle, mainpitch, intro }) => (
 	<div>
 		<div
 			className="full-width-image margin-top-0"
@@ -21,25 +21,35 @@ export const IndexPageTemplate = ({ image, title, heading, subheading, mainpitch
 				params={{
 					particles: {
 						number: {
-							value: 120,
+							value: 100,
 						},
 						size: {
-							value: 2,
+							value: 3,
 						},
-						color: "#222",
+						color: "#FFF",
+						density: {
+							enable: true,
+						},
+						move: {
+							random: true,
+							speed: 1,
+							out_mode: "out",
+						},
+						lineLinked: {
+							color: "#aaaaaa",
+						},
 					},
 					interactivity: {
 						events: {
 							onhover: {
 								enable: true,
+								mode: "grab",
+							},
+							onclick: {
+								enable: true,
 								mode: "repulse",
 							},
 						},
-					},
-					move: {
-						random: true,
-						speed: 1,
-						out_mode: "out",
 					},
 				}}
 				style={{ position: "absolute", top: "0", left: "0", width: "200%", height: "200%" }}
@@ -72,7 +82,7 @@ export const IndexPageTemplate = ({ image, title, heading, subheading, mainpitch
 						padding: "0.25em",
 					}}
 				>
-					{subheading}
+					{subtitle}
 				</h3>
 			</div>
 		</div>
@@ -90,12 +100,6 @@ export const IndexPageTemplate = ({ image, title, heading, subheading, mainpitch
 										<h3 className="subtitle">{mainpitch.description}</h3>
 									</div>
 								</div>
-								<div className="columns">
-									<div className="column is-12">
-										<h3 className="has-text-weight-semibold is-size-2">{heading}</h3>
-										<p>{description}</p>
-									</div>
-								</div>
 								<Features gridItems={intro.blurbs} />
 								<div className="columns">
 									<div className="column is-12 has-text-centered">
@@ -109,7 +113,7 @@ export const IndexPageTemplate = ({ image, title, heading, subheading, mainpitch
 									<ProjectRoll />
 									<div className="column is-12 has-text-centered">
 										<Link className="btn" to="/projects">
-											Read more
+											Više projekata
 										</Link>
 									</div>
 								</div>
@@ -125,10 +129,8 @@ export const IndexPageTemplate = ({ image, title, heading, subheading, mainpitch
 IndexPageTemplate.propTypes = {
 	image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 	title: PropTypes.string,
-	heading: PropTypes.string,
-	subheading: PropTypes.string,
+	subtitle: PropTypes.string,
 	mainpitch: PropTypes.object,
-	description: PropTypes.string,
 	intro: PropTypes.shape({
 		blurbs: PropTypes.array,
 	}),
@@ -139,15 +141,7 @@ const IndexPage = ({ data }) => {
 
 	return (
 		<Layout>
-			<IndexPageTemplate
-				image={frontmatter.image}
-				title={frontmatter.title}
-				heading={frontmatter.heading}
-				subheading={frontmatter.subheading}
-				mainpitch={frontmatter.mainpitch}
-				description={frontmatter.description}
-				intro={frontmatter.intro}
-			/>
+			<IndexPageTemplate image={frontmatter.image} title={frontmatter.title} subtitle={frontmatter.subtitle} mainpitch={frontmatter.mainpitch} intro={frontmatter.intro} />
 		</Layout>
 	);
 };
@@ -166,7 +160,6 @@ export const pageQuery = graphql`
 	query IndexPageTemplate {
 		markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
 			frontmatter {
-				title
 				image {
 					childImageSharp {
 						fluid(maxWidth: 2048, quality: 100) {
@@ -174,13 +167,12 @@ export const pageQuery = graphql`
 						}
 					}
 				}
-				heading
-				subheading
+				title
+				subtitle
 				mainpitch {
 					title
 					description
 				}
-				description
 				intro {
 					blurbs {
 						image {

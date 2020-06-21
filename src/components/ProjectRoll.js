@@ -13,7 +13,7 @@ class ProjectRoll extends React.Component {
 				{posts &&
 					posts.map(({ node: post }) => (
 						<div className="is-parent column is-6" key={post.id}>
-							<article className={`project-list-item tile is-child box notification ${post.frontmatter.featuredpost ? "is-featured" : ""}`}>
+							<article className={`project-list-item tile is-child ${post.frontmatter.featuredpost ? "is-featured" : ""}`}>
 								<header>
 									{post.frontmatter.featuredimage ? (
 										<div className="featured-thumbnail">
@@ -33,14 +33,16 @@ class ProjectRoll extends React.Component {
 										<span className="subtitle is-size-5 is-block">{post.frontmatter.date}</span>
 									</p>
 								</header>
-								<p>
-									{post.excerpt}
-									<br />
-									<br />
-									<Link className="button" to={post.fields.slug}>
-										Više o projektu →
-									</Link>
-								</p>
+								<div className="article-body">
+									<p>
+										{post.excerpt}
+										<br />
+										<br />
+										<Link className="button" to={post.fields.slug}>
+											Više o projektu →
+										</Link>
+									</p>
+								</div>
 							</article>
 						</div>
 					))}
@@ -72,11 +74,11 @@ export default () => (
 							frontmatter {
 								title
 								templateKey
-								date(formatString: "MMMM DD, YYYY")
+								date(formatString: "DD.MM.YYYY.")
 								featuredpost
 								featuredimage {
 									childImageSharp {
-										fluid(maxWidth: 120, quality: 100) {
+										fluid(maxWidth: 420, quality: 100) {
 											...GatsbyImageSharpFluid
 										}
 									}

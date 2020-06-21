@@ -4,21 +4,26 @@ title: Food + Beer
 link: http://food-beer.herokuapp.com/index.html
 date: 2016-12-17T15:04:10.000Z
 description: >-
-  Konceptualna web stranica za zamišljeni event.
+    Konceptualna web stranica za zamišljeni event.
 
 
-  Za event je odrađen branding, dizajn i web stranica. Primarni fokus kod dizajna bio je na zanimljivim tehničkim detaljima uz održavanje maksimalne jednostavnosti i ugodnog UX-a.
+    Za event je odrađen branding, dizajn i web stranica. Primarni fokus kod dizajna bio je na zanimljivim tehničkim detaljima uz održavanje maksimalne jednostavnosti i ugodnog UX-a.
 featuredpost: false
 featuredimage: /img/food_beer_logo.jpg
 technologies:
-  - Javascript
-  - HTML
-  - CSS
+    - Javascript
+    - HTML
+    - CSS
 tags:
-  - flavor
-  - tasting
+    - Javascript
+    - CSS
+    - HTML
+    - Web
+    - Branding
+    - Design
 ---
-Food + Beer je primarno dizajnerska eksploracija sa svrhom guranja *vanilla* Javascripta, CSS-a i HTML-a do apsolutnog ruba.
+
+Food + Beer je primarno dizajnerska eksploracija sa svrhom guranja _vanilla_ Javascripta, CSS-a i HTML-a do apsolutnog ruba.
 
 Jedna od osnovnih inspiracija za dizajn stranice bile su analogne tehnologije - polaroidi, rukopis, bilježnice, neonska svjetla. Ovi motivi se nalaze u zanimljivom kontrastu sa svježim, modernim dizajnom i proširenjima koja im omogućuje njihova izvedba kroz web tehnologije.
 
