@@ -13,7 +13,6 @@ export const IndexPageTemplate = ({ image, title, heading, subheading, mainpitch
 			className="full-width-image margin-top-0"
 			style={{
 				backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})`,
-				backgroundPosition: `top left`,
 				backgroundAttachment: `fixed`,
 				position: "relative",
 			}}
@@ -22,7 +21,7 @@ export const IndexPageTemplate = ({ image, title, heading, subheading, mainpitch
 				params={{
 					particles: {
 						number: {
-							value: 100,
+							value: 120,
 						},
 						size: {
 							value: 2,
@@ -42,7 +41,7 @@ export const IndexPageTemplate = ({ image, title, heading, subheading, mainpitch
 						out_mode: "out",
 					},
 				}}
-				style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+				style={{ position: "absolute", top: "-100%", left: "-100%", width: "200%", height: "200%" }}
 			/>
 			<div
 				style={{
@@ -99,7 +98,7 @@ export const IndexPageTemplate = ({ image, title, heading, subheading, mainpitch
 								<Features gridItems={intro.blurbs} />
 								<div className="columns">
 									<div className="column is-12 has-text-centered">
-										<Link className="btn" to="/products">
+										<Link className="btn" to="/services">
 											Više o uslugama
 										</Link>
 									</div>
