@@ -7,7 +7,7 @@ import Features from "../components/Features";
 import ProjectRoll from "../components/ProjectRoll";
 import Particles from "react-particles-js";
 
-export const IndexPageTemplate = ({ image, title, subtitle, mainpitch, intro }) => (
+export const IndexPageTemplate = ({ image, title, subtitle, mainpitch, blurbs }) => (
 	<div>
 		<div
 			className="full-width-image margin-top-0"
@@ -184,8 +184,6 @@ export const pageQuery = graphql`
 						}
 						text
 					}
-					heading
-					description
 				}
 			}
 		}

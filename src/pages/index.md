@@ -9,15 +9,13 @@ mainpitch:
 	description: Ekletka nudi sve usluge za vaše moderno poslovanje na web, mobilnim
 		i desktop platformama. Svaki korak potpunog, personaliziranog rješenja je
 		pokriven.
-intro:
-    blurbs:
-        - image: /img/photo-1494253109108-2e30c049369b.jpg
-          text: Dizajn, izrada vizuala i logoa, branding i vizualni identitet
-        - image: /img/photo-1482062364825-616fd23b8fc1.jpg
-          text: Izrada web stranica, web, mobilnih i desktop aplikacija
-        - image: /img/tutorials.png
-          text: Izrada 3D modela i vizualizacija
-        - image: /img/meeting-space.png
-          text: Marketing i oglašavanje
-video: /img/apple-touch-icon.png
+blurbs:
+	- image: /img/photo-1494253109108-2e30c049369b.jpg
+		text: Dizajn, izrada vizuala i logoa, branding i vizualni identitet
+	- image: /img/photo-1482062364825-616fd23b8fc1.jpg
+		text: Izrada web stranica, web, mobilnih i desktop aplikacija
+	- image: /img/tutorials.png
+		text: Izrada 3D modela i vizualizacija
+	- image: /img/meeting-space.png
+		text: Marketing i oglašavanje
 ---
