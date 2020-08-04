@@ -36,11 +36,11 @@ collections:
             name: "index"
             fields:
                 - { label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page" }
+                - { label: Image, name: image, widget: image }
                 - { label: Title, name: title, widget: string }
                 - { label: Subtitle, name: subtitle, widget: string }
-                - { label: Image, name: image, widget: image }
                 - { label: Mainpitch, name: mainpitch, widget: object, fields: [{ label: Title, name: title, widget: string }, { label: Description, name: description, widget: text }] }
-                - { label: Blurbs, name: blurbs, widget: list, fields: [{ label: Image, name: image, widget: image }, { label: Text, name: text, widget: text }] },
+                - { label: Blurbs, name: blurbs, widget: list, fields: [{ label: Image, name: image, widget: string }, { label: Text, name: text, widget: text }] }
           - file: "src/pages/about/index.md"
             label: "About"
             name: "about"

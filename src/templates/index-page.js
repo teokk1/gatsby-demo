@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 
 import Layout from "../components/Layout";
-import Features from "../components/Features";
 import ProjectRoll from "../components/ProjectRoll";
 import Particles from "react-particles-js";
 
@@ -12,78 +11,51 @@ export const IndexPageTemplate = ({ image, title, subtitle, mainpitch, blurbs })
 		<div
 			className="full-width-image margin-top-0"
 			style={{
-				backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})`,
+				backgroundImage: `url(${image})`,
 				backgroundAttachment: `fixed`,
-				position: "relative",
+				position: "relative"
 			}}
 		>
 			<Particles
 				params={{
 					particles: {
 						number: {
-							value: 100,
+							value: 100
 						},
 						size: {
-							value: 3,
+							value: 3
 						},
 						color: "#FFF",
 						density: {
-							enable: true,
+							enable: true
 						},
 						move: {
 							random: true,
 							speed: 1,
-							out_mode: "out",
+							out_mode: "out"
 						},
 						lineLinked: {
-							color: "#aaaaaa",
-						},
+							color: "#aaaaaa"
+						}
 					},
 					interactivity: {
 						events: {
 							onhover: {
 								enable: true,
-								mode: "grab",
+								mode: "grab"
 							},
 							onclick: {
 								enable: true,
-								mode: "repulse",
-							},
-						},
-					},
+								mode: "repulse"
+							}
+						}
+					}
 				}}
 				style={{ position: "absolute", top: "0", left: "0", width: "200%", height: "200%" }}
 			/>
-			<div
-				style={{
-					display: "flex",
-					height: "150px",
-					lineHeight: "1",
-					justifyContent: "space-around",
-					alignItems: "left",
-					flexDirection: "column",
-				}}
-			>
-				<h1
-					className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-					style={{
-						color: "white",
-						lineHeight: "1",
-						padding: "0.25em",
-					}}
-				>
-					{title}
-				</h1>
-				<h3
-					className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-					style={{
-						color: "white",
-						lineHeight: "1",
-						padding: "0.25em",
-					}}
-				>
-					{subtitle}
-				</h3>
+			<div className="title-container">
+				<h1 className="title">{title}</h1>
+				<h3 className="subtitle">{subtitle}</h3>
 			</div>
 		</div>
 		<section className="section section--gradient">
@@ -100,7 +72,7 @@ export const IndexPageTemplate = ({ image, title, subtitle, mainpitch, blurbs })
 										<h3 className="subtitle">{mainpitch.description}</h3>
 									</div>
 								</div>
-								<Features gridItems={intro.blurbs} />
+								{/* <Features gridItems={blurbs} /> */}
 								<div className="columns">
 									<div className="column is-12 has-text-centered">
 										<Link className="btn" to="/services">
@@ -131,9 +103,7 @@ IndexPageTemplate.propTypes = {
 	title: PropTypes.string,
 	subtitle: PropTypes.string,
 	mainpitch: PropTypes.object,
-	intro: PropTypes.shape({
-		blurbs: PropTypes.array,
-	}),
+	blurbs: PropTypes.array
 };
 
 const IndexPage = ({ data }) => {
@@ -141,7 +111,13 @@ const IndexPage = ({ data }) => {
 
 	return (
 		<Layout>
-			<IndexPageTemplate image={frontmatter.image} title={frontmatter.title} subtitle={frontmatter.subtitle} mainpitch={frontmatter.mainpitch} intro={frontmatter.intro} />
+			<IndexPageTemplate
+				image={frontmatter.image}
+				title={frontmatter.title}
+				subtitle={frontmatter.subtitle}
+				mainpitch={frontmatter.mainpitch}
+				intro={frontmatter.intro}
+			/>
 		</Layout>
 	);
 };
@@ -149,9 +125,9 @@ const IndexPage = ({ data }) => {
 IndexPage.propTypes = {
 	data: PropTypes.shape({
 		markdownRemark: PropTypes.shape({
-			frontmatter: PropTypes.object,
-		}),
-	}),
+			frontmatter: PropTypes.object
+		})
+	})
 };
 
 export default IndexPage;
@@ -173,17 +149,15 @@ export const pageQuery = graphql`
 					title
 					description
 				}
-				intro {
-					blurbs {
-						image {
-							childImageSharp {
-								fluid(maxWidth: 240, quality: 64) {
-									...GatsbyImageSharpFluid
-								}
+				blurbs {
+					image {
+						childImageSharp {
+							fluid(maxWidth: 240, quality: 64) {
+								...GatsbyImageSharpFluid
 							}
 						}
-						text
 					}
+					text
 				}
 			}
 		}
