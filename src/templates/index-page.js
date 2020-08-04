@@ -6,58 +6,66 @@ import Layout from "../components/Layout";
 import ProjectRoll from "../components/ProjectRoll";
 import Particles from "react-particles-js";
 
+const ParticleDisplay = () => {
+	return (
+		<Particles
+			params={{
+				particles: {
+					number: {
+						value: 100
+					},
+					size: {
+						value: 3
+					},
+					color: "#FFF",
+					density: {
+						enable: true
+					},
+					move: {
+						random: true,
+						speed: 1,
+						out_mode: "out"
+					},
+					lineLinked: {
+						color: "#aaaaaa"
+					}
+				},
+				interactivity: {
+					events: {
+						onhover: {
+							enable: true,
+							mode: "grab"
+						},
+						onclick: {
+							enable: true,
+							mode: "repulse"
+						}
+					}
+				}
+			}}
+			style={{ position: "absolute", top: "0", left: "0", width: "200%", height: "200%" }}
+		/>
+	);
+};
+
 export const IndexPageTemplate = ({ image, title, subtitle, mainpitch, blurbs }) => (
 	<div>
 		<div
 			className="full-width-image margin-top-0"
 			style={{
-				backgroundImage: `url(${image})`,
+				backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})`,
 				backgroundAttachment: `fixed`,
 				position: "relative"
 			}}
 		>
-			<Particles
-				params={{
-					particles: {
-						number: {
-							value: 100
-						},
-						size: {
-							value: 3
-						},
-						color: "#FFF",
-						density: {
-							enable: true
-						},
-						move: {
-							random: true,
-							speed: 1,
-							out_mode: "out"
-						},
-						lineLinked: {
-							color: "#aaaaaa"
-						}
-					},
-					interactivity: {
-						events: {
-							onhover: {
-								enable: true,
-								mode: "grab"
-							},
-							onclick: {
-								enable: true,
-								mode: "repulse"
-							}
-						}
-					}
-				}}
-				style={{ position: "absolute", top: "0", left: "0", width: "200%", height: "200%" }}
-			/>
+			<ParticleDisplay />
+
 			<div className="title-container">
 				<h1 className="title">{title}</h1>
 				<h3 className="subtitle">{subtitle}</h3>
 			</div>
 		</div>
+
 		<section className="section section--gradient">
 			<div className="container">
 				<div className="section">
@@ -108,6 +116,8 @@ IndexPageTemplate.propTypes = {
 
 const IndexPage = ({ data }) => {
 	const { frontmatter } = data.markdownRemark;
+
+	console.log(frontmatter.image);
 
 	return (
 		<Layout>
