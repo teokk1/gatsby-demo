@@ -10,12 +10,12 @@ mainpitch:
     i desktop platformama. Svaki korak potpunog, personaliziranog rješenja je
     pokriven.
 services:
-  - image: /img/photo-1494253109108-2e30c049369b.jpg
+  - image: /img/design1-01.svg
     text: Dizajn, izrada vizuala i logoa, branding i vizualni identitet
-  - image: /img/photo-1482062364825-616fd23b8fc1.jpg
+  - image: /img/design1-02.svg
     text: Izrada web stranica, web, mobilnih i desktop aplikacija
-  - image: /img/tutorials.png
-    text: Izrada 3D modela i vizualizacija
-  - image: /img/meeting-space.png
+  - image: /img/design1-03.svg
+    text: "Izrada 3D modela i vizualizacija, rendera te obrada videa "
+  - image: /img/design1-04.svg
     text: Marketing i oglašavanje
 ---
