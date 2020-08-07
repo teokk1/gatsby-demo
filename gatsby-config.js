@@ -35,6 +35,7 @@ module.exports = {
 				]
 			}
 		},
+		"gatsby-plugin-netlify-cms-paths",
 		{ resolve: "gatsby-remark-normalize-paths", options: { pathFields: ["image", "cover"] } },
 		"gatsby-plugin-react-helmet",
 		"gatsby-plugin-sass",

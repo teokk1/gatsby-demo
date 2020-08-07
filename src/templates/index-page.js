@@ -4,102 +4,51 @@ import { Link, graphql } from "gatsby";
 
 import Layout from "../components/Layout";
 import ProjectRoll from "../components/ProjectRoll";
-import Particles from "react-particles-js";
 
-const ParticleDisplay = () => {
-	return (
-		<Particles
-			params={{
-				particles: {
-					number: {
-						value: 100
-					},
-					size: {
-						value: 3
-					},
-					color: "#FFF",
-					density: {
-						enable: true
-					},
-					move: {
-						random: true,
-						speed: 1,
-						out_mode: "out"
-					},
-					lineLinked: {
-						color: "#aaaaaa"
-					}
-				},
-				interactivity: {
-					events: {
-						onhover: {
-							enable: true,
-							mode: "grab"
-						},
-						onclick: {
-							enable: true,
-							mode: "repulse"
-						}
-					}
-				}
-			}}
-			style={{ position: "absolute", top: "0", left: "0", width: "200%", height: "200%" }}
-		/>
-	);
-};
+import { ParticleDisplay } from "../components/ParticleDisplay";
+import { Blurb } from "../components/Blurb";
 
-export const IndexPageTemplate = ({ image, title, subtitle, mainpitch, blurbs }) => (
+export const IndexPageTemplate = ({ image, title, subtitle, mainpitch, services }) => (
 	<div>
-		<div
-			className="full-width-image margin-top-0"
+		<header
+			className="header"
 			style={{
-				backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})`,
-				backgroundAttachment: `fixed`,
-				position: "relative"
+				backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})`
 			}}
 		>
 			<ParticleDisplay />
 
-			<div className="title-container">
+			<div className="main-title-container">
 				<h1 className="title">{title}</h1>
-				<h3 className="subtitle">{subtitle}</h3>
+				<h2 className="subtitle">{subtitle}</h2>
 			</div>
-		</div>
+		</header>
 
 		<section className="section section--gradient">
-			<div className="container">
-				<div className="section">
-					<div className="columns">
-						<div className="column is-10 is-offset-1">
-							<div className="content">
-								<div className="content">
-									<div className="tile">
-										<h1 className="title">{mainpitch.title}</h1>
-									</div>
-									<div className="tile">
-										<h3 className="subtitle">{mainpitch.description}</h3>
-									</div>
-								</div>
-								{/* <Features gridItems={blurbs} /> */}
-								<div className="columns">
-									<div className="column is-12 has-text-centered">
-										<Link className="btn" to="/services">
-											Više o uslugama
-										</Link>
-									</div>
-								</div>
-								<div className="column is-12">
-									<h3 className="has-text-weight-semibold is-size-2">Najnoviji projekti</h3>
-									<ProjectRoll />
-									<div className="column is-12 has-text-centered">
-										<Link className="btn" to="/projects">
-											Više projekata
-										</Link>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+			<div className="mainpitch">
+				<h3 className="title">{mainpitch.title}</h3>
+				<h4 className="subtitle">{mainpitch.description}</h4>
+			</div>
+
+			<div className="services-container">
+				{services.map(b => (
+					<Blurb image={s.image} text={s.text} />
+				))}
+			</div>
+			<div className="columns">
+				<div className="">
+					<Link className="btn" to="/services">
+						Više o uslugama
+					</Link>
+				</div>
+			</div>
+			<div className="column">
+				<h3 className="">Najnoviji projekti</h3>
+				<ProjectRoll />
+				<div className="">
+					<Link className="btn" to="/projects">
+						Više projekata
+					</Link>
 				</div>
 			</div>
 		</section>
@@ -111,13 +60,11 @@ IndexPageTemplate.propTypes = {
 	title: PropTypes.string,
 	subtitle: PropTypes.string,
 	mainpitch: PropTypes.object,
-	blurbs: PropTypes.array
+	services: PropTypes.array
 };
 
 const IndexPage = ({ data }) => {
 	const { frontmatter } = data.markdownRemark;
-
-	console.log(frontmatter.image);
 
 	return (
 		<Layout>
@@ -126,7 +73,7 @@ const IndexPage = ({ data }) => {
 				title={frontmatter.title}
 				subtitle={frontmatter.subtitle}
 				mainpitch={frontmatter.mainpitch}
-				intro={frontmatter.intro}
+				services={frontmatter.services}
 			/>
 		</Layout>
 	);
@@ -159,7 +106,7 @@ export const pageQuery = graphql`
 					title
 					description
 				}
-				blurbs {
+				services {
 					image {
 						childImageSharp {
 							fluid(maxWidth: 240, quality: 64) {

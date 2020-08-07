@@ -6,10 +6,14 @@ import "../css/all.sass";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
 
+import blob1 from "../img/blob1.svg";
+import blob2 from "../img/blob2.svg";
+import blob3 from "../img/blob3.svg";
+
 const TemplateWrapper = ({ children }) => {
 	const { title, description } = useSiteMetadata();
 	return (
-		<div>
+		<div className="main-container">
 			<Helmet>
 				<html lang="en" />
 				<title>{title}</title>
@@ -28,8 +32,14 @@ const TemplateWrapper = ({ children }) => {
 				<meta property="og:image" content={`${withPrefix("/")}img/og-image.jpg`} />
 			</Helmet>
 			<Navbar />
-			<div>{children}</div>
-			<Footer />
+			<div className="main-wrapper">
+				{children}
+				<Footer />
+			</div>
+
+			<img src={blob1} className="blob" />
+			<img src={blob2} className="blob" />
+			<img src={blob3} className="blob" />
 		</div>
 	);
 };

@@ -1,105 +1,64 @@
-@import "~bulma/sass/utilities/initial-variables"
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+
 @import "projects.sass"
 @import "footer.sass"
 @import "nav.sass"
+@import "header.sass"
+@import "mainpitch.sass"
 
-// Config vars
-$ekletka-primary: #f2545bff;
-$ekletka-primary-invert: #ced4d3ff;
+@import "variables.sass"
 
-$bittersweet-shimmer: #bc4c54ff;
-$cordovan: #86434cff;
-$gunmetal: #19323cff;
-$deep-space-sparkle: #445960ff;
-$slate-gray: #6f7f83ff;
-$quick-silver: #9aa5a7ff;
-$silver-sand: #c4cbcaff;
-$platinum: #e6e9e8ff;
-
-//$ekletka-primary: #0082cb
-//$ekletka-primary-invert: #fff
-
-$primary: $ekletka-primary
-$primary-invert: $ekletka-primary-invert
-$body-color: white
-$black: #2b2523
+*
+  margin: 0
+  padding: 0
 
 body
-	background-color: $ekletka-primary-invert;
+  font-family: "Roboto"
+  background-color: $body-color
 
-.content .taglist
-  list-style: none
-  margin-bottom: 0
-  margin-left: 0
-  margin-right: 1.5rem
-  margin-top: 1.5rem
-  display: flex
-  flex-wrap: wrap
-  justify-content: left
-  align-items: center
-  li
-    padding: 0 2rem 1rem 0
-    margin-bottom: 1.5rem
-    margin-top: 0
+.subtitle
+  padding-top: $huge-padding
 
-// Helper Classes
-.full-width-image-container
-  width: 100vw
-  height: 400px
-  position: relative
-  left: 50%
-  right: 50%
-  margin: 2em -50vw
-  background-size: cover
-  background-position: bottom
-  display: flex
-  justify-content: center
-  align-items: center
+h1, h2
+  text-align: center
+  color: $primary-text-color
 
-.full-width-image
-    width: 100vw
-    height: 400px
-    background-size: cover
-    background-position: center
-    display: flex
-    justify-content: center
-    align-items: center
+.main-container
 
-.btn
-    display: inline-block
-    padding: 12px 16px 10px
-    font-size: 18px
-    font-size: 1rem
-    line-height: 1.25
-    background-color: #fff
-    border-radius: .25rem
-    text-decoration: none
-    font-weight: 700
-    color: #CC3700
-    text-align: center
-    -webkit-transition: all .15s ease
-    transition: all .15s ease
+.main-wrapper
+  background-color: $wrapper-color
+  max-width: 1000px
+  margin: 0 auto
+  border-radius: $wrapper-radius
+  // box-shadow: 0px 20px 30px rgba(0,0,0,0.35)
 
-.navbar-item .icon
-  color: $primary
-// Override for use of svg's from https://simpleicons.org/
-.icon svg
-  width: 1.5rem
-  height: 1.5rem
-  fill: currentColor
+  backdrop-filter: blur(39px)
 
-//Menu overrides
-$menu-item-color: $white-ter
-$menu-item-hover-color: $black !important
-$menu-item-hover-background-color: $black
-$menu-item-active-color: $ekletka-primary-invert
-$menu-item-active-background-color:	$ekletka-primary-invert
-$menu-list-border-left: 1px solid $ekletka-primary-invert
-$menu-label-color: $white-ter
+  // padding: $medium-padding
 
-.menu-label
-  font-size: 1em !important
-  text-align: left
-.menu-list
-  list-style: none !important
-  text-align: left
+  margin-top: 96px
+
+.blob
+  position: fixed
+  z-index: -1
+  transition: 0.3s
+
+.blob:nth-of-type(1)
+  bottom: 0
+  width: 110vw
+
+  transform: translate( -5%, 20%)
+
+.blob:nth-of-type(2)
+  width: 23.5vw
+  left: 67vw
+  top: 0
+
+  transform: translateY(-40%)
+
+.blob:nth-of-type(3)
+  width: 9vw
+  right: 0
+  top: 0
+
+  transform: translate(20%, -20%)

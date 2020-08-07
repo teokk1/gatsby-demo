@@ -1,6 +1,24 @@
-@import "~bulma/sass/utilities/initial-variables"
+@import "variables.sass"
+
+.navbar
+  padding: $big-padding
+  display: flex
+
+  background-color: $white
+
+  display: flex
+  justify-content: center
+  align-items: center
+
+  font-size: $big-font
 
 .navbar .navbar-menu
   box-shadow:none !important
-.navbar-brand .navbar-item.logo
-  padding: 0 1rem
+
+.navbar-item
+  padding: $medium-padding
+  text-decoration: none
+  color: $nav-text-color
+
+.navbar-item > img
+  width: 120px
