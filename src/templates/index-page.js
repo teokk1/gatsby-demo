@@ -6,17 +6,19 @@ import Layout from "../components/Layout";
 import ProjectRoll from "../components/ProjectRoll";
 
 import { ParticleDisplay } from "../components/ParticleDisplay";
-import { Blurb } from "../components/Blurb";
+import { Services } from "../components/services/Services";
 
-export const IndexPageTemplate = ({ image, title, subtitle, mainpitch, services }) => (
+export const IndexPageTemplate = ({ image, title, subtitle, servicesTitle, servicesSubtitle, services }) => (
 	<div>
 		<header
 			className="header"
-			style={{
-				backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})`
-			}}
+			style={
+				{
+					// backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image})`
+				}
+			}
 		>
-			<ParticleDisplay />
+			{/* <ParticleDisplay /> */}
 
 			<div className="main-title-container">
 				<h1 className="title">{title}</h1>
@@ -25,16 +27,7 @@ export const IndexPageTemplate = ({ image, title, subtitle, mainpitch, services 
 		</header>
 
 		<section className="section section--gradient">
-			<div className="mainpitch">
-				<h3 className="title">{mainpitch.title}</h3>
-				<h4 className="subtitle">{mainpitch.description}</h4>
-			</div>
-
-			<div className="services-container">
-				{services.map(b => (
-					<Blurb image={s.image} text={s.text} />
-				))}
-			</div>
+			<Services title={servicesTitle} subtitle={servicesSubtitle} services={services} />
 			<div className="columns">
 				<div className="">
 					<Link className="btn" to="/services">
@@ -59,7 +52,8 @@ IndexPageTemplate.propTypes = {
 	image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 	title: PropTypes.string,
 	subtitle: PropTypes.string,
-	mainpitch: PropTypes.object,
+	servicesTitle: PropTypes.string,
+	servicesSubtitle: PropTypes.string,
 	services: PropTypes.array
 };
 
@@ -72,7 +66,8 @@ const IndexPage = ({ data }) => {
 				image={frontmatter.image}
 				title={frontmatter.title}
 				subtitle={frontmatter.subtitle}
-				mainpitch={frontmatter.mainpitch}
+				servicesTitle={frontmatter.servicesTitle}
+				servicesSubtitle={frontmatter.servicesSubtitle}
 				services={frontmatter.services}
 			/>
 		</Layout>
@@ -102,10 +97,8 @@ export const pageQuery = graphql`
 				}
 				title
 				subtitle
-				mainpitch {
-					title
-					description
-				}
+				servicesTitle
+				servicesSubtitle
 				services {
 					image {
 						childImageSharp {
@@ -113,6 +106,8 @@ export const pageQuery = graphql`
 								...GatsbyImageSharpFluid
 							}
 						}
+						extension
+						publicURL
 					}
 					text
 				}

@@ -1,0 +1,264 @@
+@import "variables.sass"
+
+.services-container
+    padding: $gigantic-padding
+    padding-top: 0
+
+    display: flex
+    flex-wrap: wrap
+
+    justify-items: center
+    align-items: stretch
+    align-content: center
+    justify-content: space-evenly
+
+.services-title-container
+    // padding: $gigantic-padding
+    padding-bottom: $huge-padding
+    padding-left: $big-padding
+    width: 100%
+
+.services-title-container .title
+    font-size: $huge-font
+    text-align: left
+    font-weight: normal
+    width: 100%
+
+.service-container
+    width: 22%
+
+    border-radius: 20px
+    background-color: white
+    box-shadow: 0 5px 10px rgba(0,0,0,0.16)
+    padding: $huge-padding $big-padding
+
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    justify-content: flex-start
+
+    position: relative
+
+    transition: 0.3s
+
+.service-container > div
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
+.service-container:hover
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3)
+
+    transform: scale(1.1)
+    cursor: pointer
+
+#design-pencil
+    transition: 2s
+    transform-origin: center
+
+@keyframes pencilTriangle
+    0%
+        transform: translate(-20%, 0%) scale(0.75)
+    5% 
+        transform: translate(-24%, 4%) scale(0.75)
+    25%
+        transform: translate(0%, -40%) scale(0.75) rotate(18deg)
+    50%
+        transform: translate(20%, 0%) scale(0.75) rotate(22deg)
+    100%
+        transform: translate(-20%, 0%) scale(0.75) rotate(25deg)
+            
+@keyframes pencilX
+    0%
+        transform: translate(-10%, -10%) scale(0.75) 
+    100%
+        transform: translate(30%, 30%) scale(0.75) 
+
+@keyframes pencilScribble
+    0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 100%
+        transform: translateY(-30%) scale(0.75) rotate(160deg)
+    5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95%
+        transform: translateY(30%) scale(0.75) rotate(165deg)
+
+@keyframes pencilY
+    0%,
+        transform: translateY(-20%) rotate(10deg)
+    100%
+        transform: translateY(-10%) rotate(8deg)
+
+.service-container:hover #design-pencil-container
+    // transform: rotate(359deg)
+    animation-name: pencilX
+    animation-duration: 5s
+    // animation-timing-function: ease-in-out
+    animation-fill-mode: forwards
+
+.service-container:hover #design-pencil
+    // transform: rotate(359deg)
+    animation-name: pencilScribble
+    animation-duration: 5s
+    animation-timing-function: ease-in-out
+    animation-fill-mode: forwards
+
+    // transform-origin: 100% 100%
+
+@keyframes fadeInAfterDelay
+    0%, 66%
+        opacity: 0
+    100%
+        opacity: 1
+
+#design-logo
+    opacity: 0
+
+.service-container:hover #design-logo
+    animation-name: fadeInAfterDelay
+    animation-duration: 3s
+    animation-fill-mode: forwards
+
+.service-container:hover #design-logo-stroke
+  overflow: visible
+  stroke: black
+  stroke-width: 2
+  stroke-linejoin: round
+  stroke-linecap: round
+
+@keyframes dash1
+    0%
+        stroke-dashoffset: 89
+    25%, 100%
+        stroke-dashoffset: 0
+
+@keyframes dash2
+    25%
+        stroke-dashoffset: 80
+    50%, 100%
+        stroke-dashoffset: 0
+
+@keyframes dash3
+    50%
+        stroke-dashoffset: 95
+    100%
+        stroke-dashoffset: 0
+
+#design-line1
+    stroke-dasharray: 89
+    stroke-dashoffset: 89
+#design-line2
+    stroke-dasharray: 80
+    stroke-dashoffset: 80
+#design-line3
+    stroke-dasharray: 95
+    stroke-dashoffset: 95
+
+.service-container:hover #design-line1
+    animation: dash1 2s ease-in-out forwards
+.service-container:hover #design-line2
+    animation: dash2 2s ease-in-out forwards
+.service-container:hover #design-line3
+    animation: dash3 2s ease-in-out forwards
+
+.service-container:hover #web-screen
+    // transform: rotateX(90deg)
+
+.service-container > h5
+    text-align: center
+    padding: $big-padding $medium-padding
+    font-size: $big-font
+    font-family: $primary-font
+    font-weight: 200
+    color: $deep-space-sparkle
+
+@keyframes bullhornSound
+    0%
+        transform: scale(0.7) rotate(0deg)
+    25%
+        transform: scale(1.2) rotate(-2deg)
+    55%
+        transform: scale(0.9) rotate(2deg)
+    75%
+        transform: scale(1.2) rotate(-2deg)
+    100%
+        transform: scale(1) rotate(0deg)
+
+#marketing-bullhorn
+    transform-origin: 25% center
+
+.service-container:hover #marketing-bullhorn
+    animation-name: bullhornSound
+    animation-duration: 0.9s
+    animation-fill-mode: forwards
+
+@keyframes bullhornPointSound
+    0%
+        transform: scale(1)
+    25%
+        transform: scale(1.1)
+    55%
+        transform: scale(1)
+    75%
+        transform: scale(1.1)
+    100%
+        transform: scale(1)
+
+#marketing-bullhorn-point
+    transform-origin: center
+
+.service-container:hover #marketing-bullhorn-point
+    animation-name: bullhornPointSound
+    animation-duration: 0.9s
+    animation-fill-mode: forwards
+
+@keyframes floatSmall
+	0% 
+		transform: translatey(0)
+	50% 
+		transform: translatey(-3%)
+	100% 
+		transform: translatey(0)
+
+@keyframes floatMedium
+	0% 
+		transform: translatey(0)
+	50% 
+		transform: translatey(-4.5%)
+	100% 
+		transform: translatey(0)
+
+@keyframes floatBig
+	0% 
+		transform: translatey(0)
+	50% 
+		transform: translatey(-6.5%)
+	100% 
+		transform: translatey(0)
+
+.threed-float
+    animation-iteration-count: infinite
+    animation-fill-mode: forwards
+    animation-duration: 4s
+    transform-origin: center
+
+.service-container:hover .threed-float-small
+    animation-name: floatSmall
+
+.service-container:hover .threed-float-medium
+    animation-name: floatMedium
+
+.service-container:hover .threed-float-big
+    animation-name: floatBig
+
+#threed-sphere, #threed-pyramid, #threed-cube
+    transition: 0.9s
+
+.service-container:hover #threed-sphere
+    transform: translate(-2%, -12%)
+
+.service-container:hover #threed-pyramid
+    transform: translate(-4%, 5%)
+
+.service-container:hover #threed-cube
+    transform: translate(2.5%, -8%)

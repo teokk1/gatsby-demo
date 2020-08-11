@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -10,10 +10,26 @@ import blob1 from "../img/blob1.svg";
 import blob2 from "../img/blob2.svg";
 import blob3 from "../img/blob3.svg";
 
+import DrawBlob, { generatePoints } from "blob-animated";
+
 const TemplateWrapper = ({ children }) => {
 	const { title, description } = useSiteMetadata();
+
+	// useEffect(() => {
+	// 	const Blob = new DrawBlob({
+	// 		vectors: generatePoints({ sides: 7 }),
+	// 		canvas: document.getElementById("blobCanvas"),
+	// 		speed: 400,
+	// 		scramble: 0.02,
+	// 		color: "#ff66cc",
+	// 		colorFunction: ctx => console.log(ctx)
+	// 	});
+	// }, []);
+
 	return (
 		<div className="main-container">
+			<canvas id="blobCanvas" style={{ width: "100%", height: "100%", zIndex: -1, position: "absolute" }} />
+
 			<Helmet>
 				<html lang="en" />
 				<title>{title}</title>

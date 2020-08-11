@@ -9,18 +9,18 @@ class ProjectRoll extends React.Component {
 		const { edges: posts } = data.allMarkdownRemark;
 
 		return (
-			<div className="columns is-multiline">
+			<div className="projects-container">
 				{posts &&
 					posts.map(({ node: post }) => (
-						<div className="is-parent column is-6" key={post.id}>
-							<article className={`project-list-item tile is-child ${post.frontmatter.featuredpost ? "is-featured" : ""}`}>
+						<div className="project-wrapper" key={post.id}>
+							<article className={`project-list-item ${post.frontmatter.featuredpost ? "is-featured" : ""}`}>
 								<header>
 									{post.frontmatter.featuredimage ? (
 										<div className="featured-thumbnail">
 											<PreviewCompatibleImage
 												imageInfo={{
 													image: post.frontmatter.featuredimage,
-													alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+													alt: `featured image thumbnail for post ${post.frontmatter.title}`
 												}}
 											/>
 										</div>
@@ -54,16 +54,19 @@ class ProjectRoll extends React.Component {
 ProjectRoll.propTypes = {
 	data: PropTypes.shape({
 		allMarkdownRemark: PropTypes.shape({
-			edges: PropTypes.array,
-		}),
-	}),
+			edges: PropTypes.array
+		})
+	})
 };
 
 export default () => (
 	<StaticQuery
 		query={graphql`
 			query ProjectRollQuery {
-				allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, filter: { frontmatter: { templateKey: { eq: "project-post" } } }) {
+				allMarkdownRemark(
+					sort: { order: DESC, fields: [frontmatter___date] }
+					filter: { frontmatter: { templateKey: { eq: "project-post" } } }
+				) {
 					edges {
 						node {
 							excerpt(pruneLength: 400)
