@@ -56,7 +56,7 @@
     cursor: pointer
 
 #design-pencil
-    transition: 2s
+    // transition: 2s
     transform-origin: center
 
 @keyframes pencilTriangle
@@ -89,24 +89,33 @@
     100%
         transform: translateY(-10%) rotate(8deg)
 
+@keyframes pencilMove
+    0% 
+        offset-rotate: -100deg
+        offset-distance: 0%
+    100% 
+        offset-rotate: -170deg
+        offset-distance: 100%
+
 .service-container:hover #design-pencil-container
     // transform: rotate(359deg)
-    animation-name: pencilX
-    animation-duration: 5s
+    // animation-name: pencilX
+    // animation-duration: 5s
     // animation-timing-function: ease-in-out
     animation-fill-mode: forwards
+    // height: 80%
+    // width: 80%
 
 .service-container:hover #design-pencil
-    // transform: rotate(359deg)
-    animation-name: pencilScribble
-    animation-duration: 5s
-    animation-timing-function: ease-in-out
-    animation-fill-mode: forwards
+    offset-path: path('M61 16.5 L 61 107.5 L 140 107.5 L 107 72 L 117 72 L 117 52.5 L 107 52.5 L 140 16.5z')
+    animation: pencilMove 4s 1 forwards cubic-bezier(.17,.67,.83,.67)
+    // offset-rotate: -170deg
 
-    // transform-origin: 100% 100%
+    transform: scale(0.5)
+    transform-origin: 76.5% 100%
 
 @keyframes fadeInAfterDelay
-    0%, 66%
+    0%, 80%
         opacity: 0
     100%
         opacity: 1
@@ -116,12 +125,12 @@
 
 .service-container:hover #design-logo
     animation-name: fadeInAfterDelay
-    animation-duration: 3s
+    animation-duration: 5s
     animation-fill-mode: forwards
 
 .service-container:hover #design-logo-stroke
   overflow: visible
-  stroke: black
+  stroke: #3d7183
   stroke-width: 2
   stroke-linejoin: round
   stroke-linecap: round

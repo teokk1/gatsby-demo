@@ -5,10 +5,12 @@ import { motion } from "framer-motion";
 export const IconDesign = props => {
 	const pathDraw = {
 		hidden: {
-			pathLength: 0
+			pathLength: 0,
+			transition: 0
 		},
 		visible: {
-			pathLength: 1
+			pathLength: 1,
+			transition: { duration: 4, ease: [0.17, 0.67, 0.83, 0.67] }
 		}
 	};
 
@@ -41,11 +43,10 @@ export const IconDesign = props => {
 				d="M61 16.5 L 61 107.5 L 140 107.5 L 107 72 L 117 72 L 117 52.5 L 107 52.5 L 140 16.5z"
 				fill="transparent"
 				variants={pathDraw}
-				delay={0}
-				initial="hidden"
+				// delay={4}
+				initial={false}
 				animate={props.hovered ? "visible" : "hidden"}
 				id="design-logo-stroke"
-				transition={{ duration: 2, type: "tween" }}
 			/>
 
 			<g id="design-pencil">
