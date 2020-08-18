@@ -1,20 +1,41 @@
 @import "variables.sass"
 
 .projects-container
-  padding: $big-padding
+  padding: $wrapper-padding
   display: grid
-  grid-template-columns: 1fr 1fr
+  grid-template-columns: repeat(3, 33%)
+  grid-gap: 20px
+
+  justify-content: space-evenly
   
+.projects-title-container
+  grid-column: 1 / -1
+  padding-bottom: $huge-padding
+  padding-left: $big-padding
+  width: 100%
+
+.projects-title-container .title
+  grid-columm: span 1
+  font-size: $huge-font
+  text-align: left
+  font-weight: normal
+  width: 100%
+
+.projects-more-container
+  width: 100%
+  grid-column: 1 / -1
+  text-align: end
+
 .project-wrapper
 	padding: $medium-padding
-  background-color: $white
-	border-radius: $small-radius
+	border-radius: $large-radius
 
-.project-list-item .article-body, .project-list-item header .post-meta
-	padding: 1rem;
+.project-list-item
+  background-color: $white
+  padding-bottom: $big-padding
   
 .project-list-item.is-featured
-  background-color: $white
+  background: linear-gradient(45deg, #333, #EEE)
 
 .project-list-item header
   display: flex
@@ -25,3 +46,9 @@
 	width: 100%
   height: 300px
   background-size: contain
+
+.project-meta
+    padding: 0 $big-padding
+    
+.project-body
+    padding: 0 $big-padding

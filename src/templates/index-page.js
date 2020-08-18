@@ -28,21 +28,8 @@ export const IndexPageTemplate = ({ image, title, subtitle, servicesTitle, servi
 
 		<section className="section section--gradient">
 			<Services title={servicesTitle} subtitle={servicesSubtitle} services={services} />
-			<div className="columns">
-				<div className="">
-					<Link className="btn" to="/services">
-						Više o uslugama
-					</Link>
-				</div>
-			</div>
 			<div className="column">
-				<h3 className="">Najnoviji projekti</h3>
-				<ProjectRoll />
-				<div className="">
-					<Link className="btn" to="/projects">
-						Više projekata
-					</Link>
-				</div>
+				<ProjectRoll title="Najnoviji Projekti" />
 			</div>
 		</section>
 	</div>

@@ -2,34 +2,56 @@
 
 .services-container
     padding: $gigantic-padding
-    padding-top: 0
+    padding: $wrapper-padding
+    padding-top: $gigantic-padding
+    padding-bottom: $gigantic-padding
+    // padding-top: 0
 
-    display: flex
-    flex-wrap: wrap
+    display: grid
+    grid-template-columns: repeat(4, 25%)
+    grid-gap: 20px
 
-    justify-items: center
-    align-items: stretch
-    align-content: center
+    // justify-items: center
+    // align-items: stretch
+    // align-content: center
     justify-content: space-evenly
 
+    background: $white
+
 .services-title-container
+    grid-column: 1 / -1
     // padding: $gigantic-padding
     padding-bottom: $huge-padding
     padding-left: $big-padding
     width: 100%
 
 .services-title-container .title
+    grid-columm: span 1
     font-size: $huge-font
     text-align: left
     font-weight: normal
     width: 100%
 
+.service-wrapper    
+    // padding-top: 200px
+    // padding-bottom: 200px
+    position: relative
+
+.service-wrapper > svg
+    fill: white
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    // transform: translateY(-50%)
+    position: absolute
+
 .service-container
-    width: 22%
+    // width: 100%
 
     border-radius: 20px
-    background-color: white
-    box-shadow: 0 5px 10px rgba(0,0,0,0.16)
+    // background-color: white
+    // box-shadow: 0 5px 10px rgba(0,0,0,0.16)
     padding: $huge-padding $big-padding
 
     display: flex
@@ -40,6 +62,8 @@
 
     position: relative
 
+    // filter: hue-rotate(320deg) saturate(0.2)
+
     transition: 0.3s
 
 .service-container > div
@@ -49,14 +73,24 @@
     width: 100%
     height: 100%
 
+.services-more-container
+    width: 100%
+    grid-column: 1 / -1
+    text-align: end
+
 .service-container:hover
     box-shadow: 0 6px 18px rgba(0,0,0,0.3)
 
     transform: scale(1.1)
     cursor: pointer
 
+    z-index: 1
+
+    background-color: $white
+
 #design-pencil
-    // transition: 2s
+    transition: 0.3s
+    filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7))
     transform-origin: center
 
 @keyframes pencilTriangle
@@ -107,6 +141,7 @@
     // width: 80%
 
 .service-container:hover #design-pencil
+    transition: 0
     offset-path: path('M61 16.5 L 61 107.5 L 140 107.5 L 107 72 L 117 72 L 117 52.5 L 107 52.5 L 140 16.5z')
     animation: pencilMove 4s 1 forwards cubic-bezier(.17,.67,.83,.67)
     // offset-rotate: -170deg
@@ -122,6 +157,7 @@
 
 #design-logo
     opacity: 0
+    transition: 0.3s
 
 .service-container:hover #design-logo
     animation-name: fadeInAfterDelay
@@ -130,10 +166,54 @@
 
 .service-container:hover #design-logo-stroke
   overflow: visible
-  stroke: #3d7183
+  stroke: #223322
   stroke-width: 2
   stroke-linejoin: round
   stroke-linecap: round
+
+#web-website-container
+    clip-path: url(#web-laptop-screen)
+
+@keyframes websiteScrollIn
+    0%, 25%
+        transform: translateY(100%)
+    50%, 100%
+        transform: translateY(0%)
+
+#web-website
+    transform: translateY(100%)
+
+.service-container:hover #web-website
+    animation: websiteScrollIn 2s ease-in-out forwards
+
+@keyframes mouseClick
+    0%
+        transform: translate(300%, 175%)
+    25%
+        transform: translate(0,0) scale(1)
+    27.5%
+       transform: scale(0.75)
+    30%
+       transform: scale(1)
+
+@keyframes buttonClick
+    25%
+        transform: scale(1)
+    27.5%
+        transform: scale(0.9)
+    35%
+        transform: scale(1)
+        
+.service-container:hover #web-mouse
+    transform-box: fill-box
+    animation: mouseClick 2s ease-in-out forwards
+
+#web-button
+    transform-box: fill-box
+    // transform-origin: center center
+
+.service-container:hover #web-button
+    animation: buttonClick 2s ease-in-out forwards
 
 @keyframes dash1
     0%
@@ -271,3 +351,11 @@
 
 .service-container:hover #threed-cube
     transform: translate(2.5%, -8%)
+
+@media screen and ( max-width: 1100px  )
+    .services-container
+        grid-template-columns: 50% 50%
+
+@media screen and ( max-width: 800px  )
+    .services-container
+        grid-template-columns: 100%

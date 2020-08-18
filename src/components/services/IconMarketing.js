@@ -6,25 +6,32 @@ export const IconMarketing = props => {
 			<defs>
 				<style>
 					{
-						".marketing-2{fill:#ffeab8}.marketing-5{fill:#729dab}.marketing-6{fill:#437c90}.marketing-7{fill:#54889a}.marketing-15,.marketing-9{fill:#376777}.marketing-10{fill:#f16555}.marketing-12{fill:#8baeba}.marketing-14,.marketing-15{stroke:#3d7183;stroke-miterlimit:10;stroke-width:2px}.marketing-14{fill:none}.marketing-17{fill:#96b5c0}"
+						".marketing-5{fill:#729dab}.marketing-6{fill:#437c90}.marketing-7{fill:#445544}.marketing-15,.marketing-9{fill:#376777}.marketing-10{fill:#f16555}.marketing-12{fill:#8baeba}.marketing-14,.marketing-15{stroke:#223322;stroke-miterlimit:10;stroke-width:2px}.marketing-14{fill:none}.marketing-17{fill:#96b5c0}"
 					}
 				</style>
+
+				<filter id="drop-shadow" width="150%" height="150%">
+					<feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur" />
+					<feOffset in="blur" dx="1" dy="1" result="offsetBlur" />
+					<feMerge>
+						<feMergeNode in="offsetBlur" />
+						<feMergeNode in="SourceGraphic" />
+					</feMerge>
+				</filter>
+
+				<linearGradient id="marketing-gradient">
+					<stop offset="5%" stop-color="#0061ff" />
+					<stop offset="95%" stop-color="#60efff" />
+				</linearGradient>
 			</defs>
-			<g
-				style={{
-					isolation: "isolate"
-				}}
-			>
-				<g id="prefix__Layer_5" data-name="Layer 5">
-					<path
-						className="marketing-2"
-						d="M196.82 103.37H160.4a7.79 7.79 0 000 15.56 9.79 9.79 0 010 19.58h-47.56a9.79 9.79 0 01-9.8-9.79 9.79 9.79 0 00-9.79-9.79H43a18.23 18.23 0 010-36.45h13.94a5.69 5.69 0 100-11.37h-.25a5.7 5.7 0 110-11.39h56.15a9.7 9.7 0 000-19.3 10.71 10.71 0 110-21.41h65.95a5.19 5.19 0 010 10.38 5.45 5.45 0 100 10.89h18v.14a31.5 31.5 0 010 63z"
-					/>
-					<ellipse className="marketing-2" cx={42.38} cy={65.42} rx={5.69} ry={4.81} />
-					<ellipse className="marketing-2" cx={86.11} cy={29.7} rx={10.73} ry={9.59} />
-					<ellipse className="marketing-2" cx={183.85} cy={128.72} rx={9.79} ry={8.83} />
-				</g>
-				<g id="marketing-bullhorn" data-name="Layer 4">
+			<g>
+				{/* <g id="prefix__Layer_5" data-name="Layer 5" fill="url(#marketing-gradient)">
+					<path d="M196.82 103.37H160.4a7.79 7.79 0 000 15.56 9.79 9.79 0 010 19.58h-47.56a9.79 9.79 0 01-9.8-9.79 9.79 9.79 0 00-9.79-9.79H43a18.23 18.23 0 010-36.45h13.94a5.69 5.69 0 100-11.37h-.25a5.7 5.7 0 110-11.39h56.15a9.7 9.7 0 000-19.3 10.71 10.71 0 110-21.41h65.95a5.19 5.19 0 010 10.38 5.45 5.45 0 100 10.89h18v.14a31.5 31.5 0 010 63z" />
+					<ellipse cx={42.38} cy={65.42} rx={5.69} ry={4.81} />
+					<ellipse cx={86.11} cy={29.7} rx={10.73} ry={9.59} />
+					<ellipse cx={183.85} cy={128.72} rx={9.79} ry={8.83} />
+				</g> */}
+				<g id="marketing-bullhorn" data-name="Layer 4" filter="url(#drop-shadow)">
 					<path
 						d="M174.61 98.75c-.89-2.22-1.87-4.9-2.7-7.78-1.25-4.34-2.6-10.15-3.85-16.77-.17-.7-.33-1.4-.48-2.12-.86-3.13-1.12-3.77-1.88-7.56a170 170 0 01-3.1-26.73 208 208 0 01-60.3 26.4 206.26 206.26 0 01-32.82 5.66c-2 11.5 4 22 8.76 28.08l12.56-2.2 16.66-2.5 7.26.16a116.61 116.61 0 0159.89 5.36z"
 						fill="#7fa6b3"
@@ -69,10 +76,9 @@ export const IconMarketing = props => {
 					<path className="marketing-9" d="M58.73 75.06a44.34 44.34 0 01.8-8.38c-2.29 5.6-1.34 13 .55 19.33a43.84 43.84 0 01-1.35-10.95z" />
 					<path
 						d="M101.43 94.26l5.17 5.58a2.94 2.94 0 01.8 2.07h0a3 3 0 01-1.34 2.46l-1.37.9-6.32-10.49z"
-						stroke="#3d7183"
+						stroke="#223322"
 						strokeMiterlimit={10}
-						strokeWidth={2}
-						fill="#54889a"
+						fill="#a9c2cb"
 					/>
 					<path
 						className="marketing-14"
@@ -100,7 +106,7 @@ export const IconMarketing = props => {
 					<path
 						id="path598"
 						d="m 170.16662,80.884218 c -0.10966,-0.30399 -1.4914,-6.340136 -2.07682,-9.268391 -1.15147,-5.759577 -1.89409,-11.482928 -2.6751,-17.307134 -0.45825,-3.417279 -0.81758,-7.88025 -0.76032,-7.928545 0.0591,-0.04983 7.27708,0.934579 7.4943,2.002019 0.01,0.04727 0.75599,1.07191 0.62507,1.556227 -0.51039,1.8876 -1.37752,1.87227 -1.37825,4.653249 -7.6e-4,2.855276 0.64712,2.545298 1.41819,7.240531 0.54277,3.304845 1.35478,5.406353 1.92617,6.960294 0.53179,1.446225 2.02565,3.014921 2.23775,4.582307 l 0.26239,1.939028 -0.32547,1.179386 c -0.12255,0.444051 -1.74839,1.809122 -3.18916,2.935079 -1.61118,1.259136 -3.5322,1.529548 -3.55875,1.45595 z"
-						fill="#54889a"
+						fill="#a9c2cb"
 					/>
 					<g id="marketing-bullhorn-point">
 						<path
@@ -123,9 +129,8 @@ export const IconMarketing = props => {
 							ry={13.53}
 							transform="rotate(-9.67 175.485 61.458)"
 							fill="#f27364"
-							stroke="#3d7183"
+							stroke="#223322"
 							strokeMiterlimit={10}
-							strokeWidth={2}
 						/>
 					</g>
 					<circle className="marketing-17" cx={156.2} cy={53.11} r={3.64} />

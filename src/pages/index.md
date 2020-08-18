@@ -10,11 +10,11 @@ servicesSubtitle: Ekletka nudi sve usluge za vaše moderno poslovanje na web, mo
   pokriven.
 services:
   - image: /img/design1-01.svg
-    text: Dizajn, izrada vizuala i logoa, branding i vizualni identitet
+    text: Dizajn, ilustracije i logoi, branding i vizualni identitet
   - image: /img/design1-02.svg
-    text: Izrada web stranica, web, mobilnih i desktop aplikacija
+    text: Web stranice, aplikacije
   - image: /img/design1-03.svg
-    text: "Izrada 3D modela i vizualizacija, rendera te obrada videa "
+    text: 3D modeli, vizualizacija i animacija, renderi i obrada videa
   - image: /img/design1-04.svg
     text: Marketing i oglašavanje
 ---

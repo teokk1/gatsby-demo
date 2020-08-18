@@ -27,7 +27,7 @@ const TemplateWrapper = ({ children }) => {
 	// }, []);
 
 	return (
-		<div className="main-container">
+		<div className="layout">
 			<canvas id="blobCanvas" style={{ width: "100%", height: "100%", zIndex: -1, position: "absolute" }} />
 
 			<Helmet>
@@ -49,13 +49,13 @@ const TemplateWrapper = ({ children }) => {
 			</Helmet>
 			<Navbar />
 			<div className="main-wrapper">
-				{children}
+				<div className="main-container">{children}</div>
 				<Footer />
 			</div>
 
-			<img src={blob1} className="blob" />
-			<img src={blob2} className="blob" />
-			<img src={blob3} className="blob" />
+			{/* <img src={blob1} className="blob" /> */}
+			{/* <img src={blob2} className="blob" /> */}
+			{/* <img src={blob3} className="blob" /> */}
 		</div>
 	);
 };

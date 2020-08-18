@@ -4,30 +4,28 @@ export const Icon3D = props => {
 	return (
 		<svg viewBox="0 0 248 156" {...props}>
 			<defs>
-				<style>
-					{
-						".threed-2{fill:#ffeab8}.threed-10{stroke:#3d7183;stroke-miterlimit:10;stroke-width:2px}.threed-8{fill:#7fa6b3}.threed-10{fill:none}"
-					}
-				</style>
+				<style>{".threed-10{stroke:#223322;stroke-miterlimit:10;stroke-width:2px}.threed-8{fill:#7fa6b3}.threed-10{fill:none}"}</style>
+
+				<linearGradient id="threed-gradient">
+					<stop offset="5%" stop-color="#f7f779" />
+					<stop offset="95%" stop-color="#fbd07c" />
+				</linearGradient>
 			</defs>
 			<g
 				style={{
 					isolation: "isolate"
 				}}
 			>
-				<g id="prefix__Layer_5" data-name="Layer 5">
+				{/* <g id="prefix__Layer_5" fill="url(#threed-gradient)">
 					<circle cx={196.54} cy={112.32} r={26.71} fill="#c4d6dc" />
-					<path
-						className="threed-2"
-						d="M196.75 85.84v-.23h-2.2a10 10 0 012.2-19.91 13.17 13.17 0 100-26.34h-83.28a3.38 3.38 0 010-6.76h6.92v-.06h.08a6.77 6.77 0 100-13.53H40.62a9 9 0 100 17.92 9 9 0 110 17.91 15.41 15.41 0 100 30.81l29.22.23a9.6 9.6 0 01-2.09 19 9 9 0 000 18.07h28.13v.06a8.26 8.26 0 011-.06c4.46 0 8.51 3.61 8.51 8.07a8.08 8.08 0 008.08 8.08h83.28v-.24c15 0 27.13-11.85 27.13-26.47s-12.14-26.55-27.13-26.55z"
-					/>
-					<ellipse className="threed-2" cx={43.72} cy={113.84} rx={9.03} ry={7.84} />
-					<ellipse className="threed-2" cx={138.22} cy={25.81} rx={6.15} ry={5.34} />
-				</g>
+					<path d="M196.75 85.84v-.23h-2.2a10 10 0 012.2-19.91 13.17 13.17 0 100-26.34h-83.28a3.38 3.38 0 010-6.76h6.92v-.06h.08a6.77 6.77 0 100-13.53H40.62a9 9 0 100 17.92 9 9 0 110 17.91 15.41 15.41 0 100 30.81l29.22.23a9.6 9.6 0 01-2.09 19 9 9 0 000 18.07h28.13v.06a8.26 8.26 0 011-.06c4.46 0 8.51 3.61 8.51 8.07a8.08 8.08 0 008.08 8.08h83.28v-.24c15 0 27.13-11.85 27.13-26.47s-12.14-26.55-27.13-26.55z" />
+					<ellipse cx={43.72} cy={113.84} rx={9.03} ry={7.84} />
+					<ellipse cx={138.22} cy={25.81} rx={6.15} ry={5.34} />
+				</g> */}
 				<g id="prefix__Layer_7" data-name="Layer 7">
 					<g className="threed-float threed-float-small">
 						<g id="threed-sphere">
-							<circle cx={140.82} cy={63.9} r={31.62} stroke="#3d7183" strokeMiterlimit={10} strokeWidth={2} fill="#54889a" />
+							<circle cx={140.82} cy={63.9} r={31.62} stroke="#223322" strokeMiterlimit={10} strokeWidth={2} fill="#54889a" />
 							<circle cx={137.73} cy={59.8} r={25.52} fill="#6493a3" />
 							<circle cx={133.23} cy={53.31} r={14.03} fill="#729dab" />
 							<circle className="threed-8" cx={131.23} cy={49.31} r={5.68} />
