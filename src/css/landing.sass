@@ -1,0 +1,76 @@
+@import "variables.sass"
+	
+$section-height: 1081px
+$top-padding: 265px
+
+.main-page-container
+	position: relative
+	overflow: hidden
+	width: 100%
+	padding: $site-padding
+	padding-top: $top-padding
+
+.main-page-blob-wrapper
+	z-index: -2
+	
+.main-page-blob
+	position: absolute
+	
+.main-page-section
+	width: 100%
+
+	font-family: "Roboto"
+	font-weight: 900
+	color: #434343
+	text-align: left
+
+	position: relative
+
+.main-page-service
+	display: flex
+	flex-direction: column
+	align-items: flex-start
+	justify-content: center
+
+	height: $section-height
+
+.main-page-hero-section
+	height: calc($section-height - $top-padding)
+
+.main-page-section > h1
+	font-size: 120px
+
+	max-width: 14ch
+
+	line-height: 159px
+
+.main-page-section > h2
+	font-size: 100px
+	max-width: 16ch
+	line-height: 132px
+
+.main-page-hero-section > h2
+	font-size: 40px
+	max-width: 30ch
+	line-height: 75px
+
+.main-page-projects
+	flex-direction: row
+	flex-wrap: wrap
+
+	justify-content: space-between
+
+	padding: 74px 0
+
+.main-page-project
+	background-color: white
+	width: 650px
+	height: 100%
+
+	border-radius: 36px
+
+	box-shadow: 5px 5px 10px rgba(0,0,0,0.16)
+
+.main-page-service-copy
+	font-weight: 400
+	max-width: 60ch

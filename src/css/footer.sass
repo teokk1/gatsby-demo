@@ -1,18 +1,41 @@
 @import "variables.sass"
 
 footer
-  padding: $big-padding
-  background-color: #EEE
-  border-top: 1px solid black
+	padding: $big-padding
+	background-color: #434343
+	color: white
 
-  display: flex
-  flex-direction: column
-  align-items: center
-  justify-content: center
-  justify-items: center
+	display: flex
 
-.footer-logo
-  width: 200px
+	align-items: center
+	justify-content: center
+	justify-items: center
+
+	position: relative
+
+	height: 100px
+
+	box-shadow: 0 -7px 10px rgba(0,0,0,0.16)
+
+.footer-copyright
+	position: absolute
+	left: $site-padding
+	font-size: 20px
 
 .footer-links
-  
+	display: flex
+
+	align-items: center
+	justify-content: center
+	justify-items: center
+
+	margin: 0 auto
+
+.footer-link
+	color: white
+	font-size: 20px
+	text-decoration: none
+	padding: 0 $big-padding
+
+.footer-link + .footer-link
+	border-left: 1px solid white

@@ -1,24 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;900&display=swap');
+    
 @import "variables.sass"
 
 .navbar
-  padding: $big-padding
-  display: flex
+    position: fixed
+    padding: 0 242px
 
-  background-color: $white
+    background-color: white
 
-  display: flex
-  justify-content: center
-  align-items: center
+    height: 100px
+    width: 100%
 
-  font-size: $big-font
+    display: flex
+    justify-content: center
+    align-items: center
 
-.navbar .navbar-menu
-  box-shadow:none !important
+    vertical-align: middle
+
+    // position: relative
+
+    box-shadow: 0 7px 10px rgba(0,0,0,0.16)
+
+    z-index: 10
+
+.nav-logo
+    position: absolute
+
+    left: 242px
+    height: 66px
 
 .navbar-item
-  padding: $medium-padding
-  text-decoration: none
-  color: $nav-text-color
+    padding: $medium-padding $big-padding
+    text-decoration: none
+    color: $nav-text-color
+    font-size: 20px
 
-.navbar-item > img
-  width: 120px
+.navbar-centerpiece
+    font-size: 45px
+    font-family: "Roboto"
+    font-weight: 900
+    text-transform: uppercase

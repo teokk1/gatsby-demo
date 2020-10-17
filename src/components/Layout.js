@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import { Footer } from "../components/Footer";
+import { Navbar } from "../components/Navbar";
 import "../css/all.sass";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
@@ -28,7 +28,7 @@ const TemplateWrapper = ({ children }) => {
 
 	return (
 		<div className="layout">
-			<canvas id="blobCanvas" style={{ width: "100%", height: "100%", zIndex: -1, position: "absolute" }} />
+			{/* <canvas id="blobCanvas" style={{ width: "100%", height: "100%", zIndex: -1, position: "absolute" }} /> */}
 
 			<Helmet>
 				<html lang="en" />
@@ -48,10 +48,12 @@ const TemplateWrapper = ({ children }) => {
 				<meta property="og:image" content={`${withPrefix("/")}img/og-image.jpg`} />
 			</Helmet>
 			<Navbar />
-			<div className="main-wrapper">
-				<div className="main-container">{children}</div>
-				<Footer />
-			</div>
+			{/* <div className="main-wrapper"> */}
+			{/* <div className="main-container"> */}
+			{children}
+			{/* </div> */}
+			<Footer />
+			{/* </div> */}
 
 			{/* <img src={blob1} className="blob" /> */}
 			{/* <img src={blob2} className="blob" /> */}
