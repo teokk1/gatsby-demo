@@ -3,55 +3,62 @@ import PropTypes from "prop-types";
 import { Link, graphql, StaticQuery } from "gatsby";
 import PreviewCompatibleImage from "./PreviewCompatibleImage";
 
+const Project = props => {
+	const post = props.post;
+
+	return (
+		<div className="main-page-project" key={post.id}>
+			<header>
+				<div className="featured-thumbnail">
+					<PreviewCompatibleImage
+						imageInfo={{
+							image: post.frontmatter.featuredimage,
+							alt: `featured image thumbnail for post ${post.frontmatter.title}`
+						}}
+					/>
+				</div>
+				<p className="project-meta">
+					<Link className="project-title" to={post.fields.slug}>
+						{post.frontmatter.title}
+					</Link>
+					<br />
+					<span className="project-date">{post.frontmatter.date}</span>
+				</p>
+			</header>
+			<div className="project-body">
+				<p>
+					{post.excerpt}
+					<br />
+					<br />
+					<Link className="project-link" to={post.fields.slug}>
+						Više o projektu →
+					</Link>
+				</p>
+			</div>
+		</div>
+	);
+};
+
 const ProjectRoll = props => {
 	const { data } = props;
 	const { edges: posts } = data.allMarkdownRemark;
 
-	return (
-		<div className="projects-container">
-			<div className="projects-title-container">
-				<h3 className="title">{props.title}</h3>
-			</div>
+	console.log(posts);
 
-			{posts &&
-				posts.map(({ node: post }) => (
-					<div className="project-wrapper" key={post.id}>
-						<article className="project-list-item">
-							<header>
-								<div className="featured-thumbnail">
-									<PreviewCompatibleImage
-										imageInfo={{
-											image: post.frontmatter.featuredimage,
-											alt: `featured image thumbnail for post ${post.frontmatter.title}`
-										}}
-									/>
-								</div>
-								<p className="project-meta">
-									<Link className="project-title" to={post.fields.slug}>
-										{post.frontmatter.title}
-									</Link>
-									<br />
-									<span className="project-date">{post.frontmatter.date}</span>
-								</p>
-							</header>
-							<div className="project-body">
-								<p>
-									{post.excerpt}
-									<br />
-									<br />
-									<Link className="project-link" to={post.fields.slug}>
-										Više o projektu →
-									</Link>
-								</p>
-							</div>
-						</article>
-					</div>
-				))}
-			<div className="projects-more-container">
-				<Link className="link link-button" to="/projects">
-					Svi projekti
-				</Link>
-			</div>
+	return (
+		<div className="">
+			<section className="main-page-section main-page-service main-page-projects">
+				<Project post={posts[0].node} />
+				<Project post={posts[1].node} />
+			</section>
+			<section className="main-page-section main-page-service main-page-projects">
+				<Project post={posts[2].node} />
+				<Project post={posts[3].node} />
+			</section>
+			<section className="main-page-section main-page-service main-page-projects">
+				<Project post={posts[0].node} />
+				<Project post={posts[1].node} />
+			</section>
 		</div>
 	);
 };

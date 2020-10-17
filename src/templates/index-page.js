@@ -7,7 +7,6 @@ import ProjectRoll from "../components/ProjectRoll";
 
 import { useWindowScroll } from "react-use";
 
-import { ParticleDisplay } from "../components/ParticleDisplay";
 import { Services } from "../components/services/Services";
 import { Background } from "../components/Background";
 
@@ -30,9 +29,9 @@ import mockup from "../img/full_mockup.png";
 const Blob = (props) => {
 	const { x, y } = useWindowScroll();
 
-	const top = props.top + (y - Math.abs(props.top)) * props.parallaxPct;
+	const yTransform = (y - Math.abs(props.top)) * props.parallaxPct / 20;
 
-	return <img className="main-page-blob" src={props.src} style={{ top: top, right: props.right, left: props.left, transition: "0.1s" }} />;
+	return <img className="main-page-blob" src={props.src} style={{ top: props.top, right: props.right, left: props.left, transition: "0.1s ease-out", transform: `translateY(${yTransform}%)` }} />;
 };
 
 export const IndexPageTemplate = ({ image, title, subtitle, servicesTitle, servicesSubtitle, services }) => {
@@ -55,33 +54,30 @@ export const IndexPageTemplate = ({ image, title, subtitle, servicesTitle, servi
 		return 1;
 	};
 
+	const updatePath = (path, pathLength) => {
+		const scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) + 0.05;
+
+		const drawLength = pathLength * scrollPercentage * (1 - 0.35 * (1 - scrollPercentage));
+
+		path.style.strokeDashoffset = pathLength - drawLength;
+	};
+
 	useEffect(() => {
 		const path = document.querySelector("#background-line");
 
 		const pathLength = path.getTotalLength();
 
-		// Make very long dashes (the length of the path itself)
 		path.style.strokeDasharray = pathLength + " " + pathLength;
-
-		// Offset the dashes so the it appears hidden entirely
 		path.style.strokeDashoffset = 0.95 * pathLength;
 
-		window.addEventListener("scroll", (e) => {
-			const scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight) + 0.05;
+		updatePath(path, pathLength);
 
-			const drawLength = pathLength * scrollPercentage * (1 - 0.35 * (1 - scrollPercentage));
-
-			path.style.strokeDashoffset = pathLength - drawLength;
-		});
+		window.addEventListener("scroll", (e) => updatePath(path, pathLength));
 	});
 
 	return (
-		<div className="main-page-container">
+		<div className="main-page-container" style={{position: "relative"}}>
 			{/* <img src={mockup} style={{ position: "absolute", zIndex: 1000, top: 0, left: 0, opacity: 0.5, width: "100%", filter: "sepia(1)" }} /> */}
-
-			<div className="background-container" style={{ position: "absolute", width: "100%", top: 0, left: 0, zIndex: -1 }}>
-				<Background />
-			</div>
 
 			<div className="background-blobs-container" style={{ position: "absolute", width: "100%", top: 0, left: 0, zIndex: -2 }}>
 				<Blob top={-245} right="-13%" src={topRightBlob} parallaxPct={-0.1} />
@@ -99,6 +95,11 @@ export const IndexPageTemplate = ({ image, title, subtitle, servicesTitle, servi
 				<Blob top={10890} right="18.5%" src={eleventhSectionBlob} parallaxPct={-0.1} />
 			</div>
 
+			<div className="background-container" style={{ position: "absolute", width: "100%", top: 0, left: 0, zIndex: 0 }}>
+				<Background/>
+			</div>
+
+
 			{/* <header className="header">
 				<div className="main-title-container">
 					<h1 className="title">{title}</h1>
@@ -111,7 +112,7 @@ export const IndexPageTemplate = ({ image, title, subtitle, servicesTitle, servi
 				<h2>
 					Moderni svijet pun je izazova.
 					<br />
-					Uz Ekletku izazovi postaju uspjesi.
+					Uz Eklektu izazovi postaju uspjesi.
 				</h2>
 			</section>
 
@@ -135,29 +136,13 @@ export const IndexPageTemplate = ({ image, title, subtitle, servicesTitle, servi
 				<h2>Projekti</h2>
 				<p className="main-page-service-copy">Lorem ipsum dolor tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis est laborum.</p>
 			</section>
-			<section className="main-page-section main-page-service main-page-projects">
-				<div className="main-page-project" />
-				<div className="main-page-project" />
-			</section>
-			<section className="main-page-section main-page-service main-page-projects">
-				<div className="main-page-project" />
-				<div className="main-page-project" />
-			</section>
-			<section className="main-page-section main-page-service main-page-projects">
-				<div className="main-page-project" />
-				<div className="main-page-project" />
-			</section>
+			<ProjectRoll title="Najnoviji Projekti" />
 			<section className="main-page-section main-page-service">
 				<h2 style={{ textAlign: "right", maxWidth: "15ch" }}>Kontakt</h2>
 				<p className="main-page-service-copy">Lorem ipsum dolor tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis est laborum.</p>
 			</section>
 
-			{/* <section className="section section--gradient">
-				<Services title={servicesTitle} subtitle={servicesSubtitle} services={services} />
-				<div className="column">
-					<ProjectRoll title="Najnoviji Projekti" />
-				</div>
-			</section> */}
+
 		</div>
 	);
 };

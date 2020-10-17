@@ -2,10 +2,10 @@
 templateKey: index-page
 image: /img/photo-1505506874110-6a7a69069a08.jpeg
 title: Sve vaše potrebe na jednom mjestu
-subtitle: Moderni svijet pun je izazova za poslovanje. Uz Ekletku izazovi
+subtitle: Moderni svijet pun je izazova za poslovanje. Uz Eklektu izazovi
   postaju uspjesi.
 servicesTitle: Cijeli paket. Individualni pristup
-servicesSubtitle: Ekletka nudi sve usluge za vaše moderno poslovanje na web, mobilnim
+servicesSubtitle: Eklekta nudi sve usluge za vaše moderno poslovanje na web, mobilnim
   i desktop platformama. Svaki korak potpunog, personaliziranog rješenja je
   pokriven.
 services:

@@ -10,8 +10,6 @@ import blob1 from "../img/blob1.svg";
 import blob2 from "../img/blob2.svg";
 import blob3 from "../img/blob3.svg";
 
-import DrawBlob, { generatePoints } from "blob-animated";
-
 const TemplateWrapper = ({ children }) => {
 	const { title, description } = useSiteMetadata();
 
@@ -27,7 +25,7 @@ const TemplateWrapper = ({ children }) => {
 	// }, []);
 
 	return (
-		<div className="layout">
+		<div className="layout" style={{position: "relative"}}>
 			{/* <canvas id="blobCanvas" style={{ width: "100%", height: "100%", zIndex: -1, position: "absolute" }} /> */}
 
 			<Helmet>
